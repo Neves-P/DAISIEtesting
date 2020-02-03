@@ -15,6 +15,7 @@
 #'   \item{[4]: immigration rate}
 #'   \item{[5]: anagenesis rate}
 #' }
+#' @export
 DAISIE_sim_core_1_4 <- function(time, mainland_n, pars) {
   lac <- pars[1]
   mu <- pars[2]
