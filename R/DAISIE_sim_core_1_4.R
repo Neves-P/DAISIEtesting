@@ -279,6 +279,14 @@ DAISIE_sim_core_checked_1_4 <- function(
 }
 
 
+#' Old version of DAISIE_ONEcolonist
+#'
+#' @param time stub
+#' @param island_spec stub
+#' @param stt_table stub
+#'
+#' @return descendants
+#' @export
 DAISIE_ONEcolonist_1_4 <- function(time, island_spec, stt_table) {
   ### number of independent colonisations
   uniquecolonisation <- as.numeric(unique(island_spec[, "Colonisation time (BP)"]))

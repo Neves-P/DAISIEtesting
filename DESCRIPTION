@@ -1,13 +1,17 @@
 Package: DAISIEtesting
-Title: What the Package Does (One Line, Title Case)
+Title: Tests the DAISIE package
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Authors@R: c(
+    person(given = "Joshua",
+           family = "Lambert",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "j.w.l.lambert@rug.nl"),
+    person(given = "Pedro",
+           family = "Neves",
+           role = c("aut"),
+           email = "p.m.santos.neves@rug.nl"))
+Description: Tests the DAISIE package. Uses functions from the DAISIE package 
+    and internal functions which have been deprecated from the DAISIE package.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

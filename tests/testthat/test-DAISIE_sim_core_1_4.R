@@ -91,7 +91,7 @@ test_that("DAISIE_ONEcolonist_1_4 works", {
     "branching time (BP)",
     "Anagenetic_origin"
   )
-  result <- DAISIE:::DAISIE_ONEcolonist_1_4(
+  result <- DAISIE_ONEcolonist_1_4(
     time = sim_time,
     island_spec = island_spec,
     stt_table = stt_table

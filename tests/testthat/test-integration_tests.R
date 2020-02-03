@@ -33,7 +33,7 @@ test_that("loglik macaronesia 2 type works", {
   pars2 <- c(100, 0, 0, 0)
   loglik <- 0
   for (i in seq_along(Macaronesia_datalist)) {
-    loglik <- loglik + DAISIE_loglik_all(pars1[i, ],
+    loglik <- loglik + DAISIE::DAISIE_loglik_all(pars1[i, ],
                                          pars2,
                                          Macaronesia_datalist[[i]],
                                          methode = "lsodes")
@@ -52,7 +52,7 @@ test_that("clade specific rate-shift loglik works", {
     methode = "ode45",
     CS_version = 1)
   pars1 <- c(0.2, 0.1, Inf, 0.001, 0.3)
-  loglik_CS <- DAISIE_loglik_CS(
+  loglik_CS <- DAISIE::DAISIE_loglik_CS(
     pars1 = pars1,
     pars2 = pars2,
     datalist = Galapagos_datalist,
