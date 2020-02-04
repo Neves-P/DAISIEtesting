@@ -128,8 +128,8 @@ testthat::test_that("DAISIE_ML simple case works", {
       df = 5L,
       conv = 0L
     )
-    utils::data(Galapagos_datalist)
-    tested_mle <- DAISIE_ML(
+    utils::data(Galapagos_datalist, package = "DAISIE")
+    tested_mle <- DAISIE::DAISIE_ML(
       datalist = Galapagos_datalist,
       initparsopt = c(2.5, 2.7, 20, 0.009, 1.01),
       ddmodel = 11,
