@@ -62,7 +62,7 @@ test_that("clade specific rate-shift loglik works", {
 })
 
 test_that("IW and CS loglik is same when K = Inf", {
-  if (Sys.getenv("TRAVIS") != "" | Sys.getenv("USERNAME") == "rampa") {
+  if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
     utils::data(Galapagos_datalist, package = "DAISIE")
     pars1 <- c(0.2, 0.1, Inf, 0.001, 0.3)
     pars2 <- c(40, 11, 0, 0)
@@ -79,7 +79,7 @@ test_that("IW and CS loglik is same when K = Inf", {
       CS_version = 1)
     testthat::expect_lt(abs(loglik_IW - loglik_CS), 5E-6)
   } else {
-    testthat::skip("Run only on Travis")
+    testthat::skip("Run only on Travis or AppVeyor")
   }
 })
 
@@ -117,7 +117,7 @@ test_that("ontogeny and null-ontogeny loglik is same
           })
 
 testthat::test_that("DAISIE_ML simple case works", {
-  if (Sys.getenv("TRAVIS") != "" | Sys.getenv("USERNAME") == "rampa") {
+  if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
     expected_mle <- data.frame(
       lambda_c = 2.55847849219339,
       mu = 2.68768191590176,
@@ -139,7 +139,7 @@ testthat::test_that("DAISIE_ML simple case works", {
     )
     testthat::expect_equal(expected_mle, tested_mle)
   } else {
-    testthat::skip("Run only on Travis")
+    testthat::skip("Run only on Travis or AppVeyor")
   }
 })
 
@@ -165,7 +165,7 @@ test_that("The parameter choice for 2type DAISIE_ML works", {
 })
 
 test_that("DAISIE_sim ontogeny integration", {
-  if (Sys.getenv("TRAVIS") != "" | Sys.getenv("USERNAME") == "rampa") {
+  if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
     n_mainland_species <- 1000
     island_age <- 9
     clado_rate <- 0.0001 # cladogenesis rate
@@ -211,6 +211,6 @@ test_that("DAISIE_sim ontogeny integration", {
       )
     )
   } else {
-    testthat::skip("Run only on Travis")
+    testthat::skip("Run only on Travis or AppVeyor")
   }
 })
