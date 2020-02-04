@@ -7,14 +7,15 @@
 DAISIE_ONEcolonist_1_4(time, island_spec, stt_table)
 }
 \arguments{
-\item{time}{stub}
+\item{time}{Total time of simulation}
 
-\item{island_spec}{stub}
+\item{island_spec}{Matrix with runtime simulation data}
 
-\item{stt_table}{stub}
+\item{stt_table}{Matrix with species-through-time information on immigrant,
+anagenetic, cladogenetic and total number of species.}
 }
 \value{
-descendants
+DAISIE simulation output object
 }
 \description{
 Old version of DAISIE_ONEcolonist
