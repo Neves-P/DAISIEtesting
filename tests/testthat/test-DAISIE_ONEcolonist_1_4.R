@@ -170,7 +170,7 @@ test_that("DAISIE_ONEcolonist_1_4 works with >=2 cladogenetic with same ancestor
   carr_cap <- 4
   imm_rate <- 1
   ana_rate <- 0.000001
-  expect_silent(DAISIE_sim_core_1_4(
+  expect_silent(out <- DAISIE_sim_core_1_4(
     time = sim_time,
     mainland_n = n_mainland_species,
     pars = c(clado_rate, ext_rate, carr_cap, imm_rate, ana_rate)
@@ -188,7 +188,7 @@ test_that("DAISIE_ONEcolonist_1_4 works with >=2 anagenetic with same ancestor",
   carr_cap <- 4
   imm_rate <- 1
   ana_rate <- 2
-  expect_silent(DAISIE_sim_core_1_4(
+  expect_silent(out <- DAISIE_sim_core_1_4(
     time = sim_time,
     mainland_n = n_mainland_species,
     pars = c(clado_rate, ext_rate, carr_cap, imm_rate, ana_rate)
@@ -204,7 +204,7 @@ test_that("DAISIE_ONEcolonist_1_4 works with >=2 nonendemic with same ancestor",
   carr_cap <- 4
   imm_rate <- 3
   ana_rate <- 1
-  expect_silent(DAISIE_sim_core_1_4(
+  expect_silent(out <- DAISIE_sim_core_1_4(
     time = sim_time,
     mainland_n = n_mainland_species,
     pars = c(clado_rate, ext_rate, carr_cap, imm_rate, ana_rate)
