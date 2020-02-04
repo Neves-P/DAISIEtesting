@@ -210,4 +210,19 @@ test_that("DAISIE_sim_core_1_4 with n_immig > 0 and anagesis works", {
   )
 })
 
-
+test_that("DAISIE_sim_core_1_4 works with empty island", {
+  set.seed(42)
+  sim_time <- 10
+  n_mainland_species <- 10
+  clado_rate <- 0.00001
+  ext_rate <- 0.00001
+  carr_cap <- 4
+  imm_rate <- 0.00000000001
+  ana_rate <- 1.0
+  expect_silent(DAISIE_sim_core_1_4(
+    time = sim_time,
+    mainland_n = n_mainland_species,
+    pars = c(clado_rate, ext_rate, carr_cap, imm_rate, ana_rate)
+  )
+  )
+})
