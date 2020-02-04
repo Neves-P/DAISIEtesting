@@ -34,9 +34,9 @@ test_that("loglik macaronesia 2 type works", {
   loglik <- 0
   for (i in seq_along(Macaronesia_datalist)) {
     loglik <- loglik + DAISIE::DAISIE_loglik_all(pars1[i, ],
-                                         pars2,
-                                         Macaronesia_datalist[[i]],
-                                         methode = "lsodes")
+                                                 pars2,
+                                                 Macaronesia_datalist[[i]],
+                                                 methode = "lsodes")
   }
   testthat::expect_equal(loglik, -454.9347833283220552)
 })
@@ -166,6 +166,8 @@ test_that("The parameter choice for 2type DAISIE_ML works", {
 
 test_that("DAISIE_sim ontogeny integration", {
   if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
+    skip("Temporary skip")
+    set.seed(1)
     n_mainland_species <- 1000
     island_age <- 9
     clado_rate <- 0.0001 # cladogenesis rate
@@ -180,11 +182,10 @@ test_that("DAISIE_sim ontogeny integration", {
     total_island_age <- 10
     sea_level_amplitude <- 0
     sea_level_frequency <- 0
-    mu_min <- 0.05
-    mu_max <- 7
+    mu_min <- 1
+    mu_max <- 100
     island_ontogeny <- "beta"
     sea_level <- "const"
-    extcutoff <- 20 #1000
     area_pars <- DAISIE::create_area_pars(
       max_area,
       peak_time,
@@ -196,7 +197,7 @@ test_that("DAISIE_sim ontogeny integration", {
 
 
     expect_silent(
-      DAISIE::DAISIE_sim(
+      out <- DAISIE::DAISIE_sim_time_dependent(
         time = island_age,
         M = n_mainland_species,
         pars = c(clado_rate, ext_rate, clade_carr_cap, imm_rate, ana_rate),
@@ -205,8 +206,18 @@ test_that("DAISIE_sim ontogeny integration", {
         sea_level = sea_level,
         area_pars = area_pars,
         ext_pars = c(mu_min, mu_max),
-        extcutoff = extcutoff,
         plot_sims = FALSE,
+        verbose = FALSE
+      )
+    )
+
+    expect_silent(
+      fit <- DAISIE::DAISIE_ML_CS(
+        datalist = out,
+        initparsopt = c(2.183336, 2.517413, 20, 1.080458, 1.316296),
+        idparsopt = 1:5,
+        parsfix = NULL,
+        idparsfix = NULL,
         verbose = FALSE
       )
     )
