@@ -54,7 +54,7 @@ DAISIE_calc_clade_ana_rate <- function(ps_ana_rate, n_immigrants) {
 #'   rate will be zero if there are more species than the carrying capacity
 #'   allows for
 #' @note For clade-specific carrying capacity,
-#'   each clade is simulated seperately in \code{\link{DAISIE_sim}}
+#'   each clade is simulated seperately in \code{\link{DAISIE_sim_constant_rate}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   testit::assert(

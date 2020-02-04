@@ -24,7 +24,7 @@ Calculate the clade-wide cladogenesis rate.
 }
 \note{
 For clade-specific carrying capacity,
-  each clade is simulated seperately in \code{\link{DAISIE_sim}}
+  each clade is simulated seperately in \code{\link{DAISIE_sim_constant_rate}}
 }
 \examples{
   testit::assert(
