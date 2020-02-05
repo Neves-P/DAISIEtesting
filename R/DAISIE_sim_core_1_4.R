@@ -88,7 +88,7 @@ DAISIE_sim_core_1_4 <- function(time, mainland_n, pars) {
       ##########################################
       #EXTINCTION
       if (possible_event == 2) {
-        extinct <- DDD::sample2(1:length(island_spec[, 1]), 1)
+        extinct <- DDD::sample2(seq_along(island_spec[, 1]), 1)
         #this chooses the row of species data to remove
         typeofspecies <- island_spec[extinct, 4]
         if (typeofspecies == "I") {
@@ -160,7 +160,7 @@ DAISIE_sim_core_1_4 <- function(time, mainland_n, pars) {
       ##########################################
       #CLADOGENESIS - this splits species into two new species - both of which receive
       if (possible_event == 4) {
-        tosplit <- DDD::sample2(1:length(island_spec[, 1]), 1)
+        tosplit <- DDD::sample2(seq_along(island_spec[, 1]), 1)
         #if the species that speciates is cladogenetic
         if (island_spec[tosplit, 4] == "C") {
           #for daughter A
@@ -281,11 +281,11 @@ DAISIE_ONEcolonist_1_4 <- function(time, island_spec, stt_table) {
     ### create table with information on other clades with same ancestor, but this information is not used in DAISIE_ML
     oldest <- which(as.numeric(island_spec[, "Colonisation time (BP)"]) == max(as.numeric(island_spec[, "Colonisation time (BP)"])))
     youngest_table <- island_spec[-oldest, ]
-    if (class(youngest_table) == "character") {
+    if (is.character(youngest_table) && !is.matrix(youngest_table)) { ####### TODO: WILL FAIL IN DEVELOP ON rsetienne/DAISIE
       youngest_table <- t(as.matrix(youngest_table))
     }
     uniquecol <- as.numeric(unique(youngest_table[, "Colonisation time (BP)"]))
-    for (colonisation in 1:length(uniquecol)) {
+    for (colonisation in seq_along(uniquecol)) {
       descendants$other_clades_same_ancestor[[colonisation]] <- list(brts_miss = NA, species_type = NA)
       samecolonisation <- which(as.numeric(youngest_table[, "Colonisation time (BP)"]) == uniquecol[colonisation])
       if (youngest_table[samecolonisation[1], "Species type"] == "I") {
