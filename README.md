@@ -1,6 +1,6 @@
 # DAISIEtesting
 
-This R package functions as a continuous testing platform for the [geodynamics](https://github.com/rsetienne/DAISIE/tree/geodynamics) development version of the DAISIE package.
+This R package functions as a continuous testing platform for the [geodynamics](https://github.com/rsetienne/DAISIE/tree/geodynamics) development version of the [DAISIE](https://cran.r-project.org/package=DAISIE) package.
 
 Branch|[Travis](https://travis-ci.org)|[AppVeyor](https://www.appveyor.com/)|[Codecov](https://www.codecov.io)
 ---|---|---|---
