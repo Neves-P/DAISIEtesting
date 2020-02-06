@@ -177,7 +177,8 @@ test_that("use area variable (ontogeny) diversity-dependent without
                 peak_sharpness = 1,
                 total_island_age = 10,
                 sea_level_amplitude = 0,
-                sea_level_frequency = 0
+                sea_level_frequency = 0,
+                island_gradient_angle = 0
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
@@ -206,11 +207,13 @@ test_that("use area variable (ontogeny) diversity-dependent without
 test_that("use area variable (ontogeny) diversity-dependent with
           hyper_pars", {
             ps_clado_rate <- 0.2
+            carr_cap <- 9
+            n_species <- 4
             default_pars <- DAISIE:::create_default_pars(
               island_ontogeny = 0,
               sea_level = 0,
               totaltime = 5,
-              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 0, 0),
+              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 0, 0, 0),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 4,
                 x = 3,
@@ -221,9 +224,6 @@ test_that("use area variable (ontogeny) diversity-dependent with
               ext_pars = NULL,
               pars = c(ps_clado_rate, 0, 0, 0, 0)
             )
-            ps_clado_rate <- 0.2
-            carr_cap <- 9
-            n_species <- 4
             created <- DAISIE:::get_clado_rate(
               timeval = 5,
               lac = ps_clado_rate,
@@ -246,11 +246,13 @@ test_that("use area variable (ontogeny) diversity-dependent with
 test_that("use area variable (sea-level) diversity-dependent without
           hyper_pars", {
             ps_clado_rate <- 0.2
+            carr_cap <- 9
+            n_species <- 4
             default_pars <- DAISIE:::create_default_pars(
               island_ontogeny = 0,
               sea_level = 1,
               totaltime = 5,
-              area_pars = DAISIE:::create_area_pars(1, 0, 0, 10, 1, 1),
+              area_pars = DAISIE:::create_area_pars(1, 0, 0, 10, 1, 1, 45),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 0,
                 x = 0,
@@ -261,9 +263,6 @@ test_that("use area variable (sea-level) diversity-dependent without
               ext_pars = NULL,
               pars = c(ps_clado_rate, 0, 0, 0, 0)
             )
-            ps_clado_rate <- 0.2
-            carr_cap <- 9
-            n_species <- 4
             created <- DAISIE:::get_clado_rate(
               timeval = 5,
               lac = ps_clado_rate,
@@ -290,7 +289,7 @@ test_that("use area variable (sea-level) diversity-dependent with
               island_ontogeny = 0,
               sea_level = 1,
               totaltime = 5,
-              area_pars = DAISIE:::create_area_pars(1, 0, 0, 10, 1, 1),
+              area_pars = DAISIE:::create_area_pars(1, 0, 0, 10, 1, 1, 45),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 1,
                 x = 3,
@@ -330,7 +329,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent
               island_ontogeny = 0,
               sea_level = 1,
               totaltime = 5,
-              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 1, 1),
+              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 1, 1, 45),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 0,
                 x = 0,
@@ -370,7 +369,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent
               island_ontogeny = 0,
               sea_level = 1,
               totaltime = 5,
-              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 1, 1),
+              area_pars = DAISIE:::create_area_pars(1, 0.5, 1, 10, 1, 1, 45),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 1,
                 x = 3,
