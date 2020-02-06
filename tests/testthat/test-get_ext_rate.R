@@ -15,7 +15,8 @@ test_that("use area constant diversity-independent without hyper_pars", {
       peak_sharpness = 0,
       total_island_age = 0,
       sea_level_amplitude = 0,
-      sea_level_frequency = 0
+      sea_level_frequency = 0,
+      island_gradient_angle = 0
     ),
     hyper_pars = NULL,
     dist_pars = NULL,
@@ -25,6 +26,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
     timeval = 0,
+    mu = ps_ext_rate,
     ext_pars = default_pars$ext_pars,
     hyper_pars = default_pars$hyper_pars,
     area_pars = default_pars$area_pars,
@@ -41,6 +43,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
   )
   created <- DAISIE:::get_ext_rate(
     timeval = 10,
+    mu = ps_ext_rate,
     ext_pars = default_pars$ext_pars,
     hyper_pars = default_pars$hyper_pars,
     area_pars =  default_pars$area_pars,
@@ -67,15 +70,22 @@ test_that("use area constant diversity-independent with hyper_pars", {
       peak_sharpness = 0,
       total_island_age = 0,
       sea_level_amplitude = 0,
-      sea_level_frequency = 0
+      sea_level_frequency = 0,
+      island_gradient_angle = 0
     ),
-    hyper_pars = DAISIE:::create_hyper_pars(d_0 = 4, x = 3, alpha = 2, beta = 1),
+    hyper_pars = DAISIE:::create_hyper_pars(
+      d_0 = 4,
+      x = 3,
+      alpha = 2,
+      beta = 1
+    ),
     dist_pars = NULL,
     ext_pars = NULL,
     pars = c(0, ps_ext_rate, 0, 0, 0)
   )
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
     timeval = 0,
+    mu = ps_ext_rate,
     ext_pars = default_pars$ext_pars,
     hyper_pars = default_pars$hyper_pars,
     area_pars = default_pars$area_pars,
@@ -103,19 +113,21 @@ test_that("use area variable (ontogeny) diversity-independent without
                 peak_sharpness = 1,
                 total_island_age = 15,
                 sea_level_amplitude = 0,
-                sea_level_frequency = 0
+                sea_level_frequency = 0,
+                island_gradient_angle = 0
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
-              ext_pars = c(1, 10),
-              pars = c(0, ps_ext_rate, 0, 0, 0)
+              ext_pars = c(ps_ext_rate, 10),
+              pars = c(0, 1, 0, 0, 0)
             )
 
             expect_silent(ext_rate <- DAISIE:::get_ext_rate(
               timeval = 5,
+              mu = 1, # not used
               hyper_pars = NULL,
-              area_pars = DAISIE:::create_area_pars(1000, 0.5, 1, 15, 0, 0),
-              ext_pars = c(1, 10),
+              area_pars = DAISIE:::create_area_pars(1000, 0.5, 1, 15, 0, 0, 0),
+              ext_pars = c(ps_ext_rate, 10),
               island_ontogeny = DAISIE:::translate_island_ontogeny("beta"),
               sea_level = DAISIE:::translate_sea_level("const"),
               extcutoff = 1000,
@@ -142,7 +154,8 @@ test_that("use area variable (sea-level) diversity-independent without
                 peak_sharpness = 0,
                 total_island_age = 11,
                 sea_level_amplitude = 1,
-                sea_level_frequency = 1
+                sea_level_frequency = 1,
+                island_gradient_angle = 45
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
@@ -179,7 +192,8 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
                 peak_sharpness = 1,
                 total_island_age = 11,
                 sea_level_amplitude = 1,
-                sea_level_frequency = 1
+                sea_level_frequency = 1,
+                island_gradient_angle = 45
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
@@ -215,7 +229,8 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
                 peak_sharpness = 1,
                 total_island_age = 11,
                 sea_level_amplitude = 1,
-                sea_level_frequency = 1
+                sea_level_frequency = 1,
+                island_gradient_angle = 45
               ),
               hyper_pars = DAISIE:::create_hyper_pars(
                 d_0 = 4,
