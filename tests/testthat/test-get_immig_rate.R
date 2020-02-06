@@ -6,7 +6,7 @@ test_that("immig rate plots", {
   default_pars <- DAISIE:::create_default_pars(
     island_ontogeny = 1,
     sea_level = 0,
-    area_pars = DAISIE:::create_area_pars(5000, 0.5, 1, 15, 0, 0),
+    area_pars = DAISIE:::create_area_pars(5000, 0.5, 1, 15, 0, 0, 0),
     hyper_pars = DAISIE:::create_hyper_pars(0, 0, 0, 0),
     dist_pars = DAISIE:::create_dist_pars(1),
     ext_pars = c(0, 0),
