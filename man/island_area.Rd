@@ -29,7 +29,7 @@ Describe a quadratic relationship between time and area, or
   return a constant vale if constant area is assumed.
 }
 \examples{
-area <- island_area(
+area <- DAISIEtesting:::island_area(
   t = 4,
   Apars = c(10, 5000, 2, 1),
   shape = 1

@@ -21,7 +21,7 @@
 #' @return Returns a numeric with area at time \code{t}, given the parametrs
 #'
 #' @examples
-#' area <- island_area(
+#' area <- DAISIEtesting:::island_area(
 #'   t = 4,
 #'   Apars = c(10, 5000, 2, 1),
 #'   shape = 1
