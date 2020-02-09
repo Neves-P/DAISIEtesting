@@ -2,8 +2,31 @@
 ### species diversity and phylogeny"
 ### Authors: Luis Valente, Rampal Etienne, Albert Phillimore
 
-#Function to describe a quadratic relationship between time and area
-island_area<-function(t, Apars, shape) {
+#' Calculate island area at a given point in time
+#'
+#' Describe a quadratic relationship between time and area, or
+#'   return a constant vale if constant area is assumed.
+#' @param t A numeric with current time of simulation at which area should
+#'   be calculated.
+#' @param Apars A numeric vector with 4 elements:
+#'   \itemize{
+#'   \item{Apars[1]: The total time which the island is set to exist.}
+#'   \item{Apars[2]: The maximum (peak) area.}
+#'   \item{Apars[3]: The time at which the peak area will be achieved.}
+#'   \item{Apars[4]: The sharpness of the curve. Usually set to 1. Higher
+#'     values result in steeper curves.}
+#'   }
+#' @param shape A numeric either 0, for constant area, or 1, for a beta curve.
+#'
+#' @return Returns a numeric with area at time \code{t}, given the parametrs
+#'
+#' @examples
+#' area <- island_area(
+#'   t = 4,
+#'   Apars = c(10, 5000, 2, 1),
+#'   shape = 1
+#' )
+island_area <- function(t, Apars, shape) {
   if (shape == 0) {
     return(Apars[2])
     }
