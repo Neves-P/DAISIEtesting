@@ -1,4 +1,4 @@
-context("DAISIE_sim_core")
+context("DAISIE_sim_core_constant_rate")
 
 test_that("new and v1.4 should give same results", {
   sim_time <- 10
