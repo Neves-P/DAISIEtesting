@@ -105,7 +105,6 @@ test_that("ontogeny and null-ontogeny loglik is same
               gam = pars1[4],
               laa = pars1[5]
             )
-            pars1_td <- DAISIE:::order_pars1(pars1_td)
             pars2 <- c(pars2, DAISIE::translate_island_ontogeny("const"))
             loglik_time <- DAISIE::DAISIE_loglik_all(
               pars1 = pars1_td,
