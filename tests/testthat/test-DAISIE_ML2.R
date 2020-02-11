@@ -1,6 +1,6 @@
 context("DAISIE_ML2")
 test_that("use", {
-  if (Sys.getenv("TRAVIS") != "") {
+  if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
 
     # This is a rough MLE test, built for fast execution. A more thorough test
     # can be found in the GitHub repository Neves-P/DAISIEtesting
@@ -60,7 +60,7 @@ test_that("use", {
 })
 
 test_that("abuse", {
-  if (Sys.getenv("TRAVIS") != "") {
+  if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
     expect_error(tested_MLE <- DAISIE:::DAISIE_ML2(
       datalist = "nonsense",
       initparsopt = c(
