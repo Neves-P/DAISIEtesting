@@ -5,7 +5,7 @@ test_that("use", {
     # This is a rough MLE test, built for fast execution. A more thorough test
     # can be found in the GitHub repository Neves-P/DAISIEtesting
 
-    utils::data(Galapagos_datalist)
+    utils::data(Galapagos_datalist, package = "DAISIE")
     datalist <- Galapagos_datalist
     initparsopt <- c(2.5, 2.7, 20, 0.009, 1.01)
     ddmodel <- 11
@@ -39,8 +39,6 @@ test_that("use", {
 
 test_that("abuse", {
   if (Sys.getenv("TRAVIS") != "") {
-    utils::data(Galapagos_datalist)
-    datalist <- Galapagos_datalist
     initparsopt <- c(2.5, 2.7, 20, 0.009, 1.01)
     ddmodel <- 11
     idparsopt <- 1:5
