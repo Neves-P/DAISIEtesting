@@ -165,33 +165,34 @@ test_that("The parameter choice for 2type DAISIE_ML works", {
 
 test_that("DAISIE_sim ontogeny integration", {
   if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
-    skip("Temporary skip")
     set.seed(1)
-    n_mainland_species <- 1000
+    n_mainland_species <- 50
     island_age <- 9
-    clado_rate <- 0.0001 # cladogenesis rate
+    clado_rate <- 0.001 # cladogenesis rate
     ext_rate <- 2.683454548 # extinction rate (not used)
     clade_carr_cap <- 0.05  # clade-level carrying capacity
-    imm_rate <- 0.001 # immigration rate
+    imm_rate <- 0.01 # immigration rate
     ana_rate <- 0.1 # anagenesis rate
-    replicates <- 5
+    replicates <- 1
     max_area <- 1000
     peak_time <- 0.1
     sharpness <- 1
-    total_island_age <- 10
+    total_island_age <- 15
     sea_level_amplitude <- 0
     sea_level_frequency <- 0
-    mu_min <- 1
-    mu_max <- 100
+    island_gradient_angle <- 0
+    mu_min <- 0.05
+    mu_max <- 20
     island_ontogeny <- "beta"
     sea_level <- "const"
     area_pars <- DAISIE::create_area_pars(
       max_area,
       peak_time,
       sharpness,
-      total_island_age,
-      sea_level_amplitude,
-      sea_level_frequency
+      total_island_age = total_island_age,
+      sea_level_amplitude = sea_level_amplitude,
+      sea_level_frequency = sea_level_frequency,
+      island_gradient_angle = island_gradient_angle
     )
 
 
@@ -212,7 +213,7 @@ test_that("DAISIE_sim ontogeny integration", {
 
     expect_silent(
       fit <- DAISIE::DAISIE_ML_CS(
-        datalist = out,
+        datalist = out[[1]],
         initparsopt = c(2.183336, 2.517413, 20, 1.080458, 1.316296),
         idparsopt = 1:5,
         parsfix = NULL,
