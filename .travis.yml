@@ -36,12 +36,10 @@ script:
 after_success:
   - travis_wait 20 Rscript -e "lintr::lint_package()"
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "devel" ]; then travis_wait 20 Rscript -e 'covr::codecov()'; fi
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/00install.out
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/00check.log
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/tests/testthat/testthat.log
+  - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/00install.out
+  - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/tests/testthat/testthat.log
   
 after_failure:
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/00install.out
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/00check.log
-  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/tests/testthat/testthat.log
+  - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/00install.out
+  - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/tests/testthat/testthat.log
   
