@@ -167,7 +167,7 @@ test_that("DAISIE_sim ontogeny integration", {
   if (Sys.getenv("TRAVIS") != "" || Sys.getenv("APPVEYOR") != "") {
     set.seed(1)
     n_mainland_species <- 50
-    island_age <- 9
+    island_age <- 5
     clado_rate <- 0.001 # cladogenesis rate
     ext_rate <- 2.683454548 # extinction rate (not used)
     clade_carr_cap <- 0.05  # clade-level carrying capacity
