@@ -195,7 +195,6 @@ test_that("DAISIE_sim ontogeny integration", {
       island_gradient_angle = island_gradient_angle
     )
 
-
     expect_silent(
       out <- DAISIE::DAISIE_sim_time_dependent(
         time = island_age,
@@ -212,15 +211,15 @@ test_that("DAISIE_sim ontogeny integration", {
     )
 
     expected <- data.frame(
-        lambda_c = 0.50851079075334016,
-        mu = 2.4663928323693416e-06,
-        K = 2.9393253437755784,
-        gamma = 0.0079838040792006883,
-        lambda_a = 1.3985419762245664e-05,
-        loglik = -15.009196369980977,
-        df = 5L,
-        conv = 0L
-      )
+      lambda_c = 0.50851079075334016,
+      mu = 2.4663928323693416e-06,
+      K = 2.9393253437755784,
+      gamma = 0.0079838040792006883,
+      lambda_a = 1.3985419762245664e-05,
+      loglik = -15.009196369980977,
+      df = 5L,
+      conv = 0L
+    )
     tested <- DAISIE::DAISIE_ML_CS(
       datalist = out[[1]],
       initparsopt = c(2.183336, 2.517413, 20, 1.080458, 1.316296),
