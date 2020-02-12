@@ -211,16 +211,25 @@ test_that("DAISIE_sim ontogeny integration", {
       )
     )
 
-    expect_silent(
-      fit <- DAISIE::DAISIE_ML_CS(
-        datalist = out[[1]],
-        initparsopt = c(2.183336, 2.517413, 20, 1.080458, 1.316296),
-        idparsopt = 1:5,
-        parsfix = NULL,
-        idparsfix = NULL,
-        verbose = FALSE
+    expected <- data.frame(
+        lambda_c = 0.50851079075334016,
+        mu = 2.4663928323693416e-06,
+        K = 2.9393253437755784,
+        gamma = 0.0079838040792006883,
+        lambda_a = 1.3985419762245664e-05,
+        loglik = -15.009196369980977,
+        df = 5L,
+        conv = 0L
       )
+    tested <- DAISIE::DAISIE_ML_CS(
+      datalist = out[[1]],
+      initparsopt = c(2.183336, 2.517413, 20, 1.080458, 1.316296),
+      idparsopt = 1:5,
+      parsfix = NULL,
+      idparsfix = NULL,
+      verbose = FALSE
     )
+    testthat::expect_equal(expected, tested)
   } else {
     testthat::skip("Run only on Travis or AppVeyor")
   }
