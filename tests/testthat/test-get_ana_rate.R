@@ -10,7 +10,6 @@ test_that("use area constant diversity-independent without hyper_pars", {
     hyper_pars = NULL,
     dist_pars = NULL,
     ext_pars = NULL,
-    pars = c(0, 0, 0, 0, 0),
     area_pars = NULL
   )
   expect_silent(ana_rate <- DAISIE:::get_ana_rate(

@@ -20,8 +20,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
     ),
     hyper_pars = NULL,
     dist_pars = NULL,
-    ext_pars = c(),
-    pars = c(0, ps_ext_rate, 0, 0, 0)
+    ext_pars = c()
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
@@ -80,8 +79,7 @@ test_that("use area constant diversity-independent with hyper_pars", {
       beta = 1
     ),
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(0, ps_ext_rate, 0, 0, 0)
+    ext_pars = NULL
   )
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
     timeval = 0,
@@ -118,8 +116,7 @@ test_that("use area variable (ontogeny) diversity-independent without
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
-              ext_pars = c(ps_ext_rate, 10),
-              pars = c(0, 1, 0, 0, 0)
+              ext_pars = c(ps_ext_rate, 10)
             )
 
             expect_silent(ext_rate <- DAISIE:::get_ext_rate(
@@ -159,8 +156,7 @@ test_that("use area variable (sea-level) diversity-independent without
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
-              ext_pars = c(1, 10),
-              pars = c(0, ps_ext_rate, 0, 0, 0)
+              ext_pars = c(1, 10)
             )
 
             expect_silent(ext_rate <- DAISIE:::get_ext_rate(
@@ -197,8 +193,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
-              ext_pars = c(1, 10),
-              pars = c(0, ps_ext_rate, 0, 0, 0)
+              ext_pars = c(1, 10)
             )
 
             expect_silent(ext_rate <- DAISIE:::get_ext_rate(
@@ -239,8 +234,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
                 beta = 1
               ),
               dist_pars = NULL,
-              ext_pars = c(1, 10),
-              pars = c(0, ps_ext_rate, 0, 0, 0)
+              ext_pars = c(1, 10)
             )
 
             expect_silent(ext_rate <- DAISIE:::get_ext_rate(
