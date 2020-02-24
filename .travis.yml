@@ -41,5 +41,5 @@ after_success:
   
 after_failure:
   - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/00install.out
-  - cat /home/travis/build/Neves-P/DAISIEtesting/DAISIEtesting.Rcheck/testthat.log
+  - cat /home/travis/build/Neves-P/DAISIEtesting/..Rcheck/tests/testthat/testthat.log
   
