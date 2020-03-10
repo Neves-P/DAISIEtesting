@@ -23,7 +23,7 @@ Contact [@Neves-P](https://github.com/Neves-P) or [@joshwlambert](https://github
 
 ## References
 
-Etienne, R. S., Valente, L. M., Phillimore, A. B., & Haegeman, B., (2018). DAISIE: Dynamical Assembly of Islands by Speciation, Immigration and Extinction. R package version 1.6.0.
+Etienne, R. S., Valente, L. M., Phillimore, A. B., & Haegeman, B., (2018). DAISIE: Dynamical Assembly of Islands by Speciation, Immigration and Extinction. R package version 1.6.0. https://github.com/rsetienne/DAISIE/tree/geodynamics
   
 Valente, L. M., Etienne, R. S., & Phillimore, A. B. (2014). The effects of island ontogeny on species diversity and phylogeny. Proceedings of the Royal Society B: Biological Sciences, 281(1784), 20133227–20133227. http://doi.org/10.1098/rspb.2013.3227
 
