@@ -33,6 +33,6 @@ Valente, L. M., Etienne, R. S., & Dávalos, L. M. (2017). Recent extinctions dis
 
 Valente, L., Phillimore, A. B., & Etienne, R. S. (2018). Using molecular phylogenies in island biogeography: It’s about time. Ecography, 1–3. http://doi.org/10.1111/ecog.03503
 
-Valente, L., Etienne, R. S., Garcia-R., Juan C. (2019). Deep Macroevolutionary Impact of Humans on New Zealand's Unique Avifauna. 29-15. https://doi.org/10.1016/j.cub.2019.06.058
+Valente, L., Etienne, R. S., Garcia-R., Juan C. (2019). Deep Macroevolutionary Impact of Humans on New Zealand's Unique Avifauna. Current Biology 29(15), 2563-2569.e4. https://doi.org/10.1016/j.cub.2019.06.058
 
 Valente, L., Phillimore, A.B., Melo, M. et al. A simple dynamic model explains the diversity of island birds worldwide. Nature 579, 92–96 (2020). https://doi.org/10.1038/s41586-020-2022-5
