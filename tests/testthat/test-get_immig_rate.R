@@ -10,8 +10,7 @@ test_that("immig rate plots", {
     hyper_pars = DAISIE:::create_hyper_pars(0, 0, 0, 0),
     dist_pars = DAISIE:::create_dist_pars(1),
     ext_pars = c(0, 0),
-    totaltime = 10,
-    pars = c(0, 0, 0, 0.001, 0)
+    totaltime = 10
   )
   for (i in 1:length(timepoints)) {
     calc_immig[i] <- DAISIE:::get_immig_rate(
@@ -64,8 +63,7 @@ test_that("classic behavior", {
     hyper_pars = DAISIE:::create_hyper_pars(0, 0, 0, 0),
     dist_pars = DAISIE:::create_dist_pars(1),
     ext_pars = c(0, 0),
-    totaltime = 10,
-    pars = c(0, 0, 0, 0.001, 0)
+    totaltime = 10
   )
 
   expected <- DAISIE_calc_clade_imm_rate(
@@ -103,8 +101,7 @@ test_that("use area constant diversity-dependent with
               hyper_pars = DAISIE:::create_hyper_pars(0, 0, 1, 0),
               dist_pars = DAISIE:::create_dist_pars(1),
               ext_pars = c(0, 0),
-              totaltime = 10,
-              pars = c(0, 0, 0, 0.001, 0)
+              totaltime = 10
             )
 
             created <- DAISIE:::get_immig_rate(

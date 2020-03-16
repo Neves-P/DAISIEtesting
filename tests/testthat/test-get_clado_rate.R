@@ -8,8 +8,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
     area_pars = NULL,
     hyper_pars = NULL,
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(2, 0, 0, 0, 0)
+    ext_pars = NULL
   )
   expect_silent(
     DAISIE:::get_clado_rate(timeval = 0,
@@ -36,8 +35,7 @@ test_that("use area constant diversity-independent with hyper_pars", {
     area_pars = NULL,
     hyper_pars = DAISIE:::create_hyper_pars(d_0 = 4, x = 3, alpha = 2, beta = 1),
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(ps_clado_rate, 0, 0, 0, 0)
+    ext_pars = NULL
   )
   created <- DAISIE:::get_clado_rate(
     timeval = 5,
@@ -69,8 +67,7 @@ test_that("use area constant diversity-dependent without hyper_pars", {
     area_pars = NULL,
     hyper_pars = NULL,
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(ps_clado_rate, 0, 0, 0, 0)
+    ext_pars = NULL
   )
 
   created <- DAISIE:::get_clado_rate(
@@ -106,8 +103,7 @@ test_that("use area constant diversity-dependent with hyper_pars", {
     area_pars = NULL,
     hyper_pars = NULL,
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(ps_clado_rate, 0, 0, 0, 0)
+    ext_pars = NULL
   )
 
   created <- DAISIE:::get_clado_rate(
@@ -140,8 +136,7 @@ test_that("use area constant diversity-independent with hyper_pars", {
     area_pars = NULL,
     hyper_pars = NULL,
     dist_pars = NULL,
-    ext_pars = NULL,
-    pars = c(ps_clado_rate, 0, 0, 0, 0)
+    ext_pars = NULL
   )
   created <- DAISIE:::get_clado_rate(
     timeval = 5,
@@ -182,8 +177,7 @@ test_that("use area variable (ontogeny) diversity-dependent without
               ),
               hyper_pars = NULL,
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             created <- DAISIE:::get_clado_rate(
               timeval = 5,
@@ -221,8 +215,7 @@ test_that("use area variable (ontogeny) diversity-dependent with
                 beta = 1
               ),
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             created <- DAISIE:::get_clado_rate(
               timeval = 5,
@@ -260,8 +253,7 @@ test_that("use area variable (sea-level) diversity-dependent without
                 beta = 0
               ),
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             created <- DAISIE:::get_clado_rate(
               timeval = 5,
@@ -297,8 +289,7 @@ test_that("use area variable (sea-level) diversity-dependent with
                 beta = 1
               ),
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             ps_clado_rate <- 0.2
             carr_cap <- 9
@@ -337,8 +328,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent
                 beta = 0
               ),
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             ps_clado_rate <- 0.2
             carr_cap <- 9
@@ -377,8 +367,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent
                 beta = 1
               ),
               dist_pars = NULL,
-              ext_pars = NULL,
-              pars = c(ps_clado_rate, 0, 0, 0, 0)
+              ext_pars = NULL
             )
             ps_clado_rate <- 0.2
             carr_cap <- 9
