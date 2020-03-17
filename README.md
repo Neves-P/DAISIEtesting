@@ -35,4 +35,4 @@ Valente, L., Phillimore, A. B., & Etienne, R. S. (2018). Using molecular phyloge
 
 Valente, L., Etienne, R. S., Garcia-R., Juan C. (2019). Deep Macroevolutionary Impact of Humans on New Zealand's Unique Avifauna. Current Biology 29(15), 2563-2569.e4. https://doi.org/10.1016/j.cub.2019.06.058
 
-Valente, L., Phillimore, A.B., Melo, M. et al. A simple dynamic model explains the diversity of island birds worldwide. Nature 579, 92–96 (2020). https://doi.org/10.1038/s41586-020-2022-5
+Valente, L., Phillimore, A.B., Melo, M. et al. (2020). A simple dynamic model explains the diversity of island birds worldwide. Nature 579, 92–96. https://doi.org/10.1038/s41586-020-2022-5
