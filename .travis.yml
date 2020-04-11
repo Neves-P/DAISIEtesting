@@ -11,7 +11,7 @@ jobs:
     os: linux
   - r: release
     os: osx
-    osx_image: xcode9.2
+    osx_image: xcode11.3
 cache: packages
 
 r_packages:
