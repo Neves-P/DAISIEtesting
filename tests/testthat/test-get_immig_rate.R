@@ -7,9 +7,6 @@ test_that("immig rate plots", {
     island_ontogeny = 1,
     sea_level = 0,
     area_pars = DAISIE:::create_area_pars(5000, 0.5, 1, 15, 0, 0, 0),
-    hyper_pars = DAISIE:::create_hyper_pars(0, 0, 0, 0),
-    dist_pars = DAISIE:::create_dist_pars(1),
-    ext_pars = c(0, 0),
     totaltime = 10
   )
   for (i in 1:length(timepoints)) {
@@ -17,9 +14,7 @@ test_that("immig rate plots", {
       timepoints[i],
       totaltime = 10,
       gam = 0.001,
-      hyper_pars = default_pars$hyper_pars,
       area_pars = default_pars$area_pars,
-      dist_pars = default_pars$dist_pars,
       island_ontogeny = 1,
       sea_level = 0,
       num_spec = 5,
@@ -60,9 +55,7 @@ test_that("classic behavior", {
     island_ontogeny = 0,
     sea_level = 0,
     area_pars = DAISIE:::create_area_pars(1, 0, 0, 0, 0, 0),
-    hyper_pars = DAISIE:::create_hyper_pars(0, 0, 0, 0),
-    dist_pars = DAISIE:::create_dist_pars(1),
-    ext_pars = c(0, 0),
+    hyper_pars = DAISIE:::create_hyper_pars(0, 0),
     totaltime = 10
   )
 
@@ -76,9 +69,7 @@ test_that("classic behavior", {
     timeval = 1.0,
     totaltime = 10.0,
     gam = ps_imm_rate,
-    hyper_pars = default_pars$hyper_pars,
     area_pars =  default_pars$area_pars,
-    dist_pars = default_pars$dist_pars,
     island_ontogeny = 0,
     sea_level = 0,
     num_spec = n_island_species,
@@ -98,18 +89,14 @@ test_that("use area constant diversity-dependent with
               island_ontogeny = 0,
               sea_level = 0,
               area_pars = DAISIE:::create_area_pars(1, 0, 0, 0, 0, 0),
-              hyper_pars = DAISIE:::create_hyper_pars(0, 0, 1, 0),
-              dist_pars = DAISIE:::create_dist_pars(1),
-              ext_pars = c(0, 0),
+              hyper_pars = DAISIE:::create_hyper_pars(0, 0),
               totaltime = 10
             )
 
             created <- DAISIE:::get_immig_rate(
               timeval = 5,
               gam = ps_imm_rate,
-              hyper_pars = default_pars$hyper_pars,
               area_pars = default_pars$area_pars,
-              dist_pars = default_pars$dist_pars,
               island_ontogeny = 0,
               sea_level = 0,
               num_spec = n_island_species,
