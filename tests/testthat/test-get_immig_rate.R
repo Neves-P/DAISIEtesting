@@ -1,6 +1,7 @@
 context("get_immig_rate")
 
 test_that("immig rate plots", {
+  island_area <- c()
   calc_immig <- c()
   timepoints <- seq(0, 10, by = 0.1)
   default_pars <- DAISIE:::create_default_pars(
@@ -10,17 +11,16 @@ test_that("immig rate plots", {
     totaltime = 10
   )
   for (i in 1:length(timepoints)) {
+    island_area[i] <- DAISIE::island_area(timeval = timepoints[i],
+                                          area_pars = default_pars$area_pars,
+                                          island_ontogeny = 1,
+                                          sea_level = 0)
     calc_immig[i] <- DAISIE:::get_immig_rate(
-      timepoints[i],
-      totaltime = 10,
       gam = 0.001,
-      area_pars = default_pars$area_pars,
-      island_ontogeny = 1,
-      sea_level = 0,
+      A = island_area[i],
       num_spec = 5,
       K = 0.05,
-      mainland_n = 1000
-    )
+      mainland_n = 1000)
   }
   expected_immig <- c(0.0000000, 0.8771152, 0.9128143, 0.9285714, 0.9379296,
                       0.9442914, 0.9489690, 0.9525895, 0.9554957, 0.9578924,
@@ -66,12 +66,11 @@ test_that("classic behavior", {
     carr_cap = carr_cap
   )
   created <- DAISIE:::get_immig_rate(
-    timeval = 1.0,
-    totaltime = 10.0,
     gam = ps_imm_rate,
-    area_pars =  default_pars$area_pars,
-    island_ontogeny = 0,
-    sea_level = 0,
+    A = island_area(timeval = 1,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 0),
     num_spec = n_island_species,
     K = carr_cap,
     mainland_n = n_mainland_species
@@ -79,37 +78,35 @@ test_that("classic behavior", {
   expect_equal(expected, created)
 })
 
-test_that("use area constant diversity-dependent with
-          hyper_pars", {
-            carr_cap <- 10
-            ps_imm_rate <- 0.1
-            n_island_species <- 5
-            n_mainland_species <- 2
-            default_pars <- DAISIE:::create_default_pars(
-              island_ontogeny = 0,
-              sea_level = 0,
-              area_pars = DAISIE:::create_area_pars(1, 0, 0, 0, 0, 0),
-              hyper_pars = DAISIE:::create_hyper_pars(0, 0),
-              totaltime = 10
-            )
+test_that("use area constant diversity-dependent with hyper_pars", {
+  carr_cap <- 10
+  ps_imm_rate <- 0.1
+  n_island_species <- 5
+  n_mainland_species <- 2
+  default_pars <- DAISIE:::create_default_pars(
+    island_ontogeny = 0,
+    sea_level = 0,
+    area_pars = DAISIE:::create_area_pars(1, 0, 0, 0, 0, 0),
+    hyper_pars = DAISIE:::create_hyper_pars(0, 0),
+    totaltime = 10
+  )
 
-            created <- DAISIE:::get_immig_rate(
-              timeval = 5,
-              gam = ps_imm_rate,
-              area_pars = default_pars$area_pars,
-              island_ontogeny = 0,
-              sea_level = 0,
-              num_spec = n_island_species,
-              mainland_n = n_mainland_species,
-              totaltime = 10,
-              K = carr_cap
-            )
-            # n_mainland_species * ps_imm_rate * (1.0 - (n_island_species / carr_cap))
-            expected <- DAISIE_calc_clade_imm_rate(
-              ps_imm_rate = ps_imm_rate,
-              n_mainland_species = n_mainland_species,
-              n_island_species = n_island_species,
-              carr_cap = carr_cap
-            )
-            expect_equal(created, expected)
-          })
+  created <- DAISIE:::get_immig_rate(
+    gam = ps_imm_rate,
+    A = island_area(timeval = 5,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 0),
+    num_spec = n_island_species,
+    K = carr_cap,
+    mainland_n = n_mainland_species
+  )
+  # n_mainland_species * ps_imm_rate * (1.0 - (n_island_species / carr_cap))
+  expected <- DAISIE_calc_clade_imm_rate(
+    ps_imm_rate = ps_imm_rate,
+    n_mainland_species = n_mainland_species,
+    n_island_species = n_island_species,
+    carr_cap = carr_cap
+  )
+  expect_equal(created, expected)
+})

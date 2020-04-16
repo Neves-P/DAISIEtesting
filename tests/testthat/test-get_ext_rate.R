@@ -22,31 +22,32 @@ test_that("use area constant diversity-independent without hyper_pars", {
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 0,
     mu = ps_ext_rate,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("const"),
-    sea_level = DAISIE:::translate_sea_level("const"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = 0,
-    K = 10)
-  )
+    K = 10,
+    A = island_area(timeval = 0,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 0)
+  ))
   expect_true(is.numeric(ext_rate))
   expected <- DAISIE_calc_clade_ext_rate(
     ps_ext_rate = ps_ext_rate,
     n_species = n_species
   )
   created <- DAISIE:::get_ext_rate(
-    timeval = 10,
     mu = ps_ext_rate,
     hyper_pars = default_pars$hyper_pars,
-    area_pars =  default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("const"),
-    sea_level = DAISIE:::translate_sea_level("const"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = n_species,
-    K = carr_cap
+    K = carr_cap,
+    A = island_area(timeval = 10,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 0)
+
   )
   expect_equal(expected, created)
 })
@@ -72,16 +73,16 @@ test_that("use area constant diversity-independent with hyper_pars", {
     )
   )
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 0,
     mu = ps_ext_rate,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("const"),
-    sea_level = DAISIE:::translate_sea_level("const"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = 0,
-    K = 10)
-  )
+    K = 10,
+    A = island_area(timeval = 0,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 0)
+  ))
   expect_true(is.numeric(ext_rate))
 })
 
@@ -105,15 +106,15 @@ test_that("use area variable (ontogeny) diversity-independent without
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 5,
     mu = 1,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = DAISIE:::create_area_pars(1000, 0.5, 1, 15, 0, 0, 0),
-    island_ontogeny = DAISIE:::translate_island_ontogeny("beta"),
-    sea_level = DAISIE:::translate_sea_level("const"),
     extcutoff = 1000,
     num_spec = 10,
-    K = 20
+    K = 20,
+    A = island_area(timeval = 5,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 1,
+                    sea_level = 0)
   )
   )
   expect_true(is.numeric(ext_rate))
@@ -139,16 +140,16 @@ test_that("use area variable (sea-level) diversity-independent without
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 5,
     mu = 2,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("const"),
-    sea_level = DAISIE:::translate_sea_level("sine"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = 10,
-    K = 20
-  )
+    K = 20,
+    A = island_area(timeval = 5,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 0,
+                    sea_level = 1)
+    )
   )
 })
 
@@ -173,15 +174,15 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 5,
     mu = 2,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("beta"),
-    sea_level = DAISIE:::translate_sea_level("sine"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = 10,
-    K = 20
+    K = 20,
+    A = island_area(timeval = 5,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 1,
+                    sea_level = 1)
   )
   )
 })
@@ -209,15 +210,15 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
   )
 
   expect_silent(ext_rate <- DAISIE:::get_ext_rate(
-    timeval = 5,
     mu = 2,
     hyper_pars = default_pars$hyper_pars,
-    area_pars = default_pars$area_pars,
-    island_ontogeny = DAISIE:::translate_island_ontogeny("beta"),
-    sea_level = DAISIE:::translate_sea_level("sine"),
-    extcutoff = 100,
+    extcutoff = 1000,
     num_spec = 10,
-    K = Inf
+    K = Inf,
+    A = island_area(timeval = 5,
+                    area_pars = default_pars$area_pars,
+                    island_ontogeny = 1,
+                    sea_level = 1)
   )
   )
 })
