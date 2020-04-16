@@ -152,7 +152,7 @@ test_that("use area variable (ontogeny) diversity-dependent without
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars =
                       default_pars$area_pars,
                     island_ontogeny = 1,
@@ -185,7 +185,7 @@ test_that("use area variable (ontogeny) diversity-dependent with hyper_pars", {
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 0)
@@ -218,7 +218,7 @@ test_that("use area variable (sea-level) diversity-dependent without
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 1)
@@ -251,7 +251,7 @@ test_that("use area variable (sea-level) diversity-dependent with hyper_pars", {
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 1)
@@ -285,7 +285,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 1)
@@ -319,7 +319,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-dependent with
     hyper_pars = default_pars$hyper_pars,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 1)

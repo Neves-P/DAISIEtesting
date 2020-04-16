@@ -27,7 +27,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
     extcutoff = 1000,
     num_spec = 0,
     K = 10,
-    A = island_area(timeval = 0,
+    A = DAISIE::island_area(timeval = 0,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 0)
@@ -43,7 +43,7 @@ test_that("use area constant diversity-independent without hyper_pars", {
     extcutoff = 1000,
     num_spec = n_species,
     K = carr_cap,
-    A = island_area(timeval = 10,
+    A = DAISIE::island_area(timeval = 10,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 0)
@@ -78,7 +78,7 @@ test_that("use area constant diversity-independent with hyper_pars", {
     extcutoff = 1000,
     num_spec = 0,
     K = 10,
-    A = island_area(timeval = 0,
+    A = DAISIE::island_area(timeval = 0,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 0)
@@ -111,7 +111,7 @@ test_that("use area variable (ontogeny) diversity-independent without
     extcutoff = 1000,
     num_spec = 10,
     K = 20,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 0)
@@ -145,7 +145,7 @@ test_that("use area variable (sea-level) diversity-independent without
     extcutoff = 1000,
     num_spec = 10,
     K = 20,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 1)
@@ -179,7 +179,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
     extcutoff = 1000,
     num_spec = 10,
     K = 20,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 1)
@@ -215,7 +215,7 @@ test_that("use area variable (ontogeny and sea-level) diversity-independent
     extcutoff = 1000,
     num_spec = 10,
     K = Inf,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 1,
                     sea_level = 1)
