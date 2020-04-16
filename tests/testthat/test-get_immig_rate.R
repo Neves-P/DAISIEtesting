@@ -93,7 +93,7 @@ test_that("use area constant diversity-dependent with hyper_pars", {
 
   created <- DAISIE:::get_immig_rate(
     gam = ps_imm_rate,
-    A = island_area(timeval = 5,
+    A = DAISIE::island_area(timeval = 5,
                     area_pars = default_pars$area_pars,
                     island_ontogeny = 0,
                     sea_level = 0),
