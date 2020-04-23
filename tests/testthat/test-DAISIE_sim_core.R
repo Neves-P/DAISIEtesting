@@ -9,12 +9,26 @@ test_that("new and v1.4 should give same results", {
   imm_rate <- 1.0
   ana_rate <- 1.0
   pars <- c(clado_rate, ext_rate, carr_cap, imm_rate, ana_rate)
+  area_pars <- DAISIE::create_area_pars(
+    max_area = 1,
+    current_area = 1,
+    proportional_peak_t = 0,
+    total_island_age = 0,
+    sea_level_amplitude = 0,
+    sea_level_frequency = 0,
+    island_gradient_angle = 0
+  )
+  hyper_pars <- DAISIE::create_hyper_pars(d = 0, x = 0)
+  nonoceanic_pars <- c(0, 0)
   rng_seed <- 42
   set.seed(rng_seed)
   new <- DAISIE:::DAISIE_sim_core_constant_rate(
     time = sim_time,
     mainland_n = n_mainland_species,
-    pars = pars
+    pars = pars,
+    area_pars = area_pars,
+    hyper_pars = hyper_pars,
+    nonoceanic_pars = nonoceanic_pars
   )
   set.seed(rng_seed)
   old <- DAISIE_sim_core_1_4(
