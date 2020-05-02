@@ -2,7 +2,6 @@ context("get_ext_rate")
 
 test_that("use area constant", {
   ps_ext_rate <- 2
-  carr_cap <- Inf
   n_species <- 4
   hyper_pars = DAISIE:::create_hyper_pars(d = 0, x = 0)
   area <- 1
@@ -11,7 +10,6 @@ test_that("use area constant", {
     hyper_pars = hyper_pars,
     extcutoff = 1000,
     num_spec = n_species,
-    K = carr_cap,
     A = area)
   expected <- DAISIE_calc_clade_ext_rate(
     ps_ext_rate = ps_ext_rate,
@@ -21,7 +19,6 @@ test_that("use area constant", {
 
 test_that("use area variable", {
   ps_ext_rate <- 2
-  carr_cap <- Inf
   n_species <- 4
   hyper_pars = DAISIE:::create_hyper_pars(d = 0.2, x = 0.1)
   area <- 10
@@ -30,7 +27,6 @@ test_that("use area variable", {
     hyper_pars = hyper_pars,
     extcutoff = 1000,
     num_spec = n_species,
-    K = carr_cap,
     A = area)
   expected <- 6.354625877794252
   expect_equal(created, expected)
