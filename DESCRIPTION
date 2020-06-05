@@ -20,6 +20,9 @@ Suggests:
 Imports: 
     DAISIE,
     DDD,
-    testit
-Remotes: rsetienne/DAISIE@geodynamics-traits
+    testit,
+    DAISIErobustness
+Remotes: 
+    rsetienne/DAISIE@geodynamics-traits,
+    Neves-P/DAISIErobustness
 RoxygenNote: 7.1.0
