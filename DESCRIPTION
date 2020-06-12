@@ -23,6 +23,6 @@ Imports:
     testit,
     DAISIErobustness
 Remotes: 
-    rsetienne/DAISIE@geodynamics-traits,
+    rsetienne/DAISIE@develop,
     Neves-P/DAISIErobustness
 RoxygenNote: 7.1.0
