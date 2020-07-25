@@ -22,6 +22,10 @@ addons:
     packages:
       - libmagick++-dev
 
+env:
+  global:
+    - LINTR_COMMENT_BOT=false
+
 r_packages:
   - doMC
 
