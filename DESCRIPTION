@@ -11,7 +11,7 @@ Authors@R: c(
            role = c("aut"),
            email = "p.m.santos.neves@rug.nl"))
 Description: Tests the DAISIE package. Provides additional testing to the DAISIE
-    package.
+    package. Home of integration tests of the DAISIE package.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
