@@ -1,6 +1,6 @@
 Package: DAISIEtesting
 Title: Tests the DAISIE package
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person(given = "Joshua",
            family = "Lambert",
@@ -10,8 +10,8 @@ Authors@R: c(
            family = "Neves",
            role = c("aut"),
            email = "p.m.santos.neves@rug.nl"))
-Description: Tests the DAISIE package. Uses functions from the DAISIE package 
-    and internal functions which have been deprecated from the DAISIE package.
+Description: Tests the DAISIE package. Provides additional testing to the DAISIE
+    package.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -23,6 +23,6 @@ Imports:
     testit,
     DAISIErobustness
 Remotes: 
-    rsetienne/DAISIE@develop,
+    rsetienne/DAISIE,
     Neves-P/DAISIErobustness
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
