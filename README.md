@@ -1,7 +1,8 @@
 # DAISIEtesting
+# 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Neves-P/DAISIEtesting?include_prereleases)
 
-This R package functions as a continuous testing platform for the 
-[DAISIE](https://github.com/rsetienne/DAISIE) package.
+This R package functions as a continuous testing platform for the [DAISIE](https://github.com/rsetienne/DAISIE) package.
 
 Branch|[Travis](https://travis-ci.org)|[AppVeyor](https://www.appveyor.com/)|[Codecov](https://www.codecov.io)
 ---|---|---|---
